@@ -22224,7 +22224,7 @@ components:
         - type: object
           properties:
             errors:
-              $ref: '#/components/schemas/detailedErrors'
+              $ref: '#/components/schemas/DetailedErrors'
       x-internal: false
     error_Base:
       title: error_Base
@@ -22261,7 +22261,7 @@ components:
           type: string
           description: A BigCommerce-defined error signifier.
         errors: 
-          $ref: '#/components/schemas/detailedErrors'
+          $ref: '#/components/schemas/DetailedErrors'
     errorNotFound:
       title: errorNotFound
       type: object
@@ -22334,8 +22334,8 @@ components:
           type: string
       description: No-content response for the BigCommerce API.
       x-internal: false
-    detailedErrors:
-      title: detailedErrors
+    DetailedErrors:
+      title: DetailedErrors
       description: Each key-value pair describes a failure or partial success case.
       type: object
       properties:
@@ -23388,7 +23388,7 @@ components:
         - type: object
           properties:
             errors:
-              $ref: '#/components/schemas/detailedErrors'
+              $ref: '#/components/schemas/DetailedErrors'
       x-internal: false
     errorResponse_422:
       title: errorResponse_422
@@ -23407,7 +23407,7 @@ components:
         - type: object
           properties:
             errors:
-              $ref: '#/components/schemas/detailedErrors'
+              $ref: '#/components/schemas/DetailedErrors'
       x-internal: false
     productSortOrder:
       title: productSortOrder
@@ -23607,7 +23607,7 @@ components:
         - type: object
           properties:
             errors:
-              $ref: '#/components/schemas/betadetailedErrors'
+              $ref: '#/components/schemas/betaDetailedErrors'
       title: errorResponse_Full
       x-tags:
         - Models
@@ -23667,9 +23667,9 @@ components:
       title: errorNoContent
       x-tags:
         - Models
-    betadetailedErrors:
+    betaDetailedErrors:
       type: object
-      title: detailedErrors
+      title: DetailedErrors
       properties:
         additionalProperties:
           type: string
@@ -23690,7 +23690,7 @@ components:
               type: string
         - properties:
             errors:
-              $ref: '#/components/schemas/betadetailedErrors'
+              $ref: '#/components/schemas/betaDetailedErrors'
       type: object
       x-tags:
         - Models
@@ -23709,7 +23709,7 @@ components:
               type: string
         - properties:
             errors:
-              $ref: '#/components/schemas/betadetailedErrors'
+              $ref: '#/components/schemas/betaDetailedErrors'
       type: object
       x-tags:
         - Models
