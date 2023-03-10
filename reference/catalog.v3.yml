@@ -21937,6 +21937,11 @@ components:
         - type
       type: object
       properties:
+        id:
+          type: integer
+          description: |
+            The unique numeric ID of the bulk pricing rule; increments sequentially. Read-Only
+          example: 3
         quantity_min:
           minimum: 0
           type: integer
