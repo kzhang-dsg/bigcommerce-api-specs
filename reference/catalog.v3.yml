@@ -24279,6 +24279,7 @@ components:
       x-tags:
         - Models
     ProductsCategoriesCount:
+      type: object
       properties:
         product_id:
           type: integer
@@ -24290,6 +24291,7 @@ components:
       x-tags:
         - Models
     CategoriesCount:
+      type: object
       properties:
         channel_id:
           type: integer
@@ -24300,6 +24302,7 @@ components:
       x-tags:
         - Models
     ProductChannelAssignment:
+      type: object
       properties:
         product_id:
           type: integer
@@ -24308,6 +24311,7 @@ components:
       x-tags:
         - Models
     ProductCategoryAssignment:
+      type: object
       properties:
         product_id:
           type: integer
