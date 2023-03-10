@@ -23956,14 +23956,6 @@ components:
                   example: '?limit=5&page=3'
       x-tags:
         - Models
-    DetailedErrors:
-      description: |
-        Details of errors.
-      type: object
-      additionalProperties:
-        type: string
-      x-tags:
-        - Models
     ErrorRequest:
       type: object
       properties:
