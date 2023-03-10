@@ -1817,6 +1817,7 @@ components:
     Transaction:
       allOf:
         - title: Transaction Base
+          type: object
           properties:
             event:
               type: string
@@ -1946,7 +1947,8 @@ components:
             - amount
             - currency
             - gateway
-        - properties:
+        - type: object
+          properties:
             id:
               type: integer
               description: |

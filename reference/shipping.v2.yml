@@ -120,7 +120,8 @@ paths:
                       title: Shipping Zone Handling Fees
                       type: object
                       oneOf:
-                        - properties:
+                        - type: object
+                          properties:
                             fixed_surcharge:
                               description: Flat-rate handling fee applied to shipping cost.
                               example: '0'
@@ -130,7 +131,8 @@ paths:
                               example: true
                               type: boolean
                           title: fixed surcharge
-                        - properties:
+                        - type: object
+                          properties:
                             percentage_surcharge:
                               description: Percentage handling fee applied to shipping cost.
                               example: '5'
@@ -279,7 +281,8 @@ paths:
                   title: Shipping Zone Handling Fees
                   type: object
                   oneOf:
-                    - properties:
+                    - type: object
+                      properties:
                         fixed_surcharge:
                           description: Flat-rate handling fee applied to shipping cost.
                           example: '0'
@@ -289,7 +292,8 @@ paths:
                           example: true
                           type: boolean
                       title: fixed surcharge
-                    - properties:
+                    - type: object
+                      properties:
                         percentage_surcharge:
                           description: Percentage handling fee applied to shipping cost.
                           example: '5'
@@ -516,7 +520,8 @@ paths:
                     title: Shipping Zone Handling Fees
                     type: object
                     oneOf:
-                      - properties:
+                      - type: object
+                        properties:
                           fixed_surcharge:
                             description: Flat-rate handling fee applied to shipping cost.
                             example: '0'
@@ -526,7 +531,8 @@ paths:
                             example: true
                             type: boolean
                         title: fixed surcharge
-                      - properties:
+                      - type: object
+                        properties:
                           percentage_surcharge:
                             description: Percentage handling fee applied to shipping cost.
                             example: '5'
@@ -637,7 +643,8 @@ paths:
                   title: Shipping Zone Handling Fees
                   type: object
                   oneOf:
-                    - properties:
+                    - type: object
+                      properties:
                         fixed_surcharge:
                           description: Flat-rate handling fee applied to shipping cost.
                           example: '0'
@@ -647,7 +654,8 @@ paths:
                           example: true
                           type: boolean
                       title: fixed surcharge
-                    - properties:
+                    - type: object
+                      properties:
                         percentage_surcharge:
                           description: Percentage handling fee applied to shipping cost.
                           example: '5'
@@ -727,7 +735,8 @@ paths:
                     title: Shipping Zone Handling Fees
                     type: object
                     oneOf:
-                      - properties:
+                      - type: object
+                        properties:
                           fixed_surcharge:
                             description: Flat-rate handling fee applied to shipping cost.
                             example: '0'
@@ -737,7 +746,8 @@ paths:
                             example: true
                             type: boolean
                         title: fixed surcharge
-                      - properties:
+                      - type: object
+                        properties:
                           percentage_surcharge:
                             description: Percentage handling fee applied to shipping cost.
                             example: '5'
@@ -1233,12 +1243,14 @@ paths:
                   handling_fees:
                     oneOf:
                       - title: fixed surcharge
+                        type: object
                         properties:
                           fixed_surcharge:
                             type: number
                             description: Flat-rate handling fee applied to shipping cost.
                             example: 0
                       - title: percentage surcharge
+                        type: object
                         properties:
                           percentage_surcharge:
                             type: number
@@ -1729,7 +1741,8 @@ components:
           title: Shipping Zone Handling Fees
           type: object
           oneOf:
-            - properties:
+            - type: object
+              properties:
                 fixed_surcharge:
                   description: Flat-rate handling fee applied to shipping cost.
                   example: '0'
@@ -1739,7 +1752,8 @@ components:
                   example: true
                   type: boolean
               title: fixed surcharge
-            - properties:
+            - type: object
+              properties:
                 percentage_surcharge:
                   description: Percentage handling fee applied to shipping cost.
                   example: '5'
@@ -1781,7 +1795,8 @@ components:
       title: Shipping Zone Handling Fees
       type: object
       oneOf:
-        - properties:
+        - type: object
+          properties:
             fixed_surcharge:
               description: Flat-rate handling fee applied to shipping cost.
               example: '0'
@@ -1791,7 +1806,8 @@ components:
               example: true
               type: boolean
           title: fixed surcharge
-        - properties:
+        - type: object
+          properties:
             percentage_surcharge:
               description: Percentage handling fee applied to shipping cost.
               example: '5'
@@ -1858,12 +1874,14 @@ components:
         handling_fees:
           oneOf:
             - title: fixed surcharge
+              type: object
               properties:
                 fixed_surcharge:
                   type: number
                   description: Flat-rate handling fee applied to shipping cost.
                   example: 0
             - title: percentage surcharge
+              type: object
               properties:
                 percentage_surcharge:
                   type: number

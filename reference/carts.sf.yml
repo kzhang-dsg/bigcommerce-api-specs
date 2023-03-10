@@ -417,7 +417,8 @@ components:
       title: Create Cart Request Object
       description: Cart object used in create cart requests.
       oneOf:
-        - properties:
+        - type: object
+          properties:
             lineItems:
               type: array
               items:
@@ -426,7 +427,8 @@ components:
               type: string
           required:
             - lineItems
-        - properties:
+        - type: object
+          properties:
             giftCertificates:
               type: array
               items:
@@ -435,7 +437,8 @@ components:
               type: string
           required:
             - giftCertificates
-        - properties:
+        - type: object
+          properties:
             lineItems:
               type: array
               items:
@@ -501,21 +504,24 @@ components:
     LineItemsRequest:
       title: requestLineItems
       oneOf:
-        - properties:
+        - type: object
+          properties:
             lineItems:
               type: array
               items:
                 $ref: '#/components/schemas/requestCartPostLineItem'
           required:
             - lineItems
-        - properties:
+        - type: object
+          properties:
             giftCertificates:
               type: array
               items:
                 $ref: '#/components/schemas/requestLineItemGiftCertificate'
           required:
             - giftCertificates
-        - properties:
+        - type: object
+          properties:
             lineItems:
               type: array
               items:
@@ -532,19 +538,22 @@ components:
     requestLineItemPut:
       title: requestLineItemPut
       oneOf:
-        - properties:
+        - type: object
+          properties:
             lineItem:
               $ref: '#/components/schemas/requestCartPostLineItem'
           required:
             - lineItem
           title: Line item
-        - properties:
+        - type: object
+          properties:
             giftCertificates:
               $ref: '#/components/schemas/requestLineItemGiftCertificate'
           required:
             - giftCertificates
           title: Gift certificate item
-        - properties:
+        - type: object
+          properties:
             lineItem:
               $ref: '#/components/schemas/requestCartPostLineItem'
             giftCertificates:
@@ -908,7 +917,8 @@ components:
     requestCartPostLineItem:
       title: Line Item Request Data
       anyOf:
-        - properties:
+        - type: object
+          properties:
             productId:
               type: number
               description: ID of the product.
@@ -919,7 +929,8 @@ components:
             - productId
             - quantity
           title: Simple product
-        - properties:
+        - type: object
+          properties:
             productId:
               type: number
               description: ID of the product.
@@ -934,7 +945,8 @@ components:
             - quantity
             - variantId
           title: Product with a variant
-        - properties:
+        - type: object
+          properties:
             productId:
               type: number
               description: ID of the product.

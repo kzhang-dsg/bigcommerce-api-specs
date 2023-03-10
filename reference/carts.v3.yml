@@ -1740,6 +1740,7 @@ components:
     ItemDigitalGet:
       allOf:
         - title: Base Item
+          type: object
           properties:
             id:
               type: string
@@ -1905,7 +1906,8 @@ components:
                     type: number
                     description: The product option value identifier in number format.
                     example: 128
-        - properties:
+        - type: object
+          properties:
             download_file_urls:
               description: URLs to download all product files.
               type: array
@@ -2597,10 +2599,8 @@ components:
       properties:
         line_items:
           oneOf:
-            - items:
-                $ref: '#/components/schemas/cart_PostVariant'
-            - items:
-                $ref: '#/components/schemas/cart_PostModifier'
+            - $ref: '#/components/schemas/cart_PostVariant'
+            - $ref: '#/components/schemas/cart_PostModifier'
           type: array
         gift_certificates:
           type: array
