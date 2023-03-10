@@ -21937,6 +21937,11 @@ components:
         - type
       type: object
       properties:
+        id:
+          type: integer
+          description: |
+            The unique numeric ID of the bulk pricing rule; increments sequentially. Read-Only
+          example: 3
         quantity_min:
           minimum: 0
           type: integer
@@ -24266,6 +24271,7 @@ components:
       x-tags:
         - Models
     ProductsCategoriesCount:
+      type: object
       properties:
         product_id:
           type: integer
@@ -24277,6 +24283,7 @@ components:
       x-tags:
         - Models
     CategoriesCount:
+      type: object
       properties:
         channel_id:
           type: integer
@@ -24287,6 +24294,7 @@ components:
       x-tags:
         - Models
     ProductChannelAssignment:
+      type: object
       properties:
         product_id:
           type: integer
@@ -24295,6 +24303,7 @@ components:
       x-tags:
         - Models
     ProductCategoryAssignment:
+      type: object
       properties:
         product_id:
           type: integer
