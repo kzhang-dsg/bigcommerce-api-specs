@@ -20117,8 +20117,9 @@ components:
       title: product_Put_Collection
       description: The model for batch updating products.
       x-internal: false
-      allOf:
-        - $ref: '#/components/schemas/product_Base'
+      items:
+        allOf:
+          - $ref: '#/components/schemas/product_Base'
       x-examples:
         example-1:
           - name: Smith Journal 13

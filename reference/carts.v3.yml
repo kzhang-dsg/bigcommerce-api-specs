@@ -2581,9 +2581,10 @@ components:
       x-internal: false
       properties:
         line_items:
-          oneOf:
-            - $ref: '#/components/schemas/cart_PostVariant'
-            - $ref: '#/components/schemas/cart_PostModifier'
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/cart_PostVariant'
+              - $ref: '#/components/schemas/cart_PostModifier'
           type: array
         gift_certificates:
           type: array
