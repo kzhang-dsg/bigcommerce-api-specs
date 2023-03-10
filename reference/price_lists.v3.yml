@@ -4106,7 +4106,8 @@ components:
     PriceRecordIdentifiers:
       description: Price Record object used in batch create or update request.
       allOf:
-        - properties:
+        - type: object
+          properties:
             price_list_id:
               type: integer
               description: |
@@ -4148,7 +4149,8 @@ components:
               data:
                 description: Price Record object used in a batch create or update request.
                 allOf:
-                  - properties:
+                  - type: object
+                    properties:
                       price_list_id:
                         type: integer
                         description: |
@@ -4186,7 +4188,8 @@ components:
         data:
           description: Price Record object used in batch create or update request.
           allOf:
-            - properties:
+            - type: object
+              properties:
                 price_list_id:
                   type: integer
                   description: |

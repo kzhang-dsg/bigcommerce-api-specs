@@ -3455,11 +3455,13 @@ components:
     customerAuthentication_PostPut:
       title: customerAuthentication_PostPut
       allOf:
-        - properties:
+        - type: object
+          properties:
             force_password_reset:
               description: 'If `true`, this customer will be forced to change password on next login.'
               type: boolean
-        - properties:
+        - type: object
+          properties:
             new_password:
               description: New password for customer. Write only field.
               type: string

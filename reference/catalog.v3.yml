@@ -22445,8 +22445,7 @@ components:
       description: The model for batch updating products.
       x-internal: false
       allOf:
-        - items:
-            $ref: '#/components/schemas/product_Base'
+        - $ref: '#/components/schemas/product_Base'
       x-examples:
         example-1:
           - name: Smith Journal 13
@@ -23683,7 +23682,8 @@ components:
     betaerrorResponse_409:
       title: errorResponse_409
       allOf:
-        - properties:
+        - type: object
+          properties:
             code:
               type: integer
             status:
@@ -23693,7 +23693,8 @@ components:
               description: The error title describing the particular error.
             type:
               type: string
-        - properties:
+        - type: object
+          properties:
             errors:
               $ref: '#/components/schemas/betadetailedErrors'
       type: object
@@ -23702,7 +23703,8 @@ components:
     betaerrorResponse_422:
       title: errorResponse_422
       allOf:
-        - properties:
+        - type: object
+          properties:
             code:
               type: integer
             status:
