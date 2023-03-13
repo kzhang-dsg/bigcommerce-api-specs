@@ -7763,17 +7763,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                maxUses:
-                  type: number
-                  example: 1
-                ttl:
-                  type: number
-                  example: 86400
-                  description: Time-to-live (TTL) is the number of seconds the token is set to exist before being discarded.
-                  minimum: 1
-                  maximum: 2592000
+              $ref: '#/components/schemas/CheckoutTokenRequest'
             examples:
               example-1:
                 value:
@@ -8823,6 +8813,18 @@ components:
           type: boolean
           description: Boolean value that specifies whether this checkout supports Optimized One-Page Checkout settings.
       description: ''
+    CheckoutTokenRequest:
+      type: object
+      properties:
+        maxUses:
+          type: number
+          example: 1
+        ttl:
+          type: number
+          example: 86400
+          description: Time-to-live (TTL) is the number of seconds the token is set to exist before being discarded.
+          minimum: 1
+          maximum: 2592000
     MetaOpen:
       title: Response meta
       type: object
