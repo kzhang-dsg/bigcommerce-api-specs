@@ -7703,13 +7703,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  checkoutToken:
-                    type: string
-                    example: beb3590088be88f59ba980d54a68df655cd8a1052a3e9caf535f3f820146c226
-                  meta:
-                    $ref: '#/components/schemas/MetaOpen'
+                $ref: '#/components/schemas/CheckoutToken'
               examples:
                 example-1:
                   value:
@@ -8825,6 +8819,14 @@ components:
           description: Time-to-live (TTL) is the number of seconds the token is set to exist before being discarded.
           minimum: 1
           maximum: 2592000
+    CheckoutToken:
+      type: object
+      properties:
+        checkoutToken:
+          type: string
+          example: beb3590088be88f59ba980d54a68df655cd8a1052a3e9caf535f3f820146c226
+        meta:
+          $ref: '#/components/schemas/MetaOpen'
     MetaOpen:
       title: Response meta
       type: object
