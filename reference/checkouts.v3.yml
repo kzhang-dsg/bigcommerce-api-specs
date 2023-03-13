@@ -1622,24 +1622,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                cart:
-                  type: object
-                  properties:
-                    discounts:
-                      type: array
-                      items:
-                        required:
-                          - discounted_amount
-                        type: object
-                        properties:
-                          discounted_amount:
-                            type: number
-                            example: 10
-                          name:
-                            type: string
-                            example: manual
+              $ref: '#/components/schemas/DiscountRequest'
         required: false
       responses:
         '200':
@@ -8779,6 +8762,25 @@ components:
           type: string
           description: Coupon codes have a 50-character limit.
       x-internal: false
+    DiscountRequest:
+      type: object
+      properties:
+        cart:
+          type: object
+          properties:
+            discounts:
+              type: array
+              items:
+                required:
+                  - discounted_amount
+                type: object
+                properties:
+                  discounted_amount:
+                    type: number
+                    example: 10
+                  name:
+                    type: string
+                    example: manual
     Order:
       title: Order
       type: object
