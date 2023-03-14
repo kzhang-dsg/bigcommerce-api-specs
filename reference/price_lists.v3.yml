@@ -3073,7 +3073,8 @@ components:
       x-internal: false
     PriceList:
       allOf:
-        - properties:
+        - type: object
+          properties:
             id:
               type: integer
               description: |
