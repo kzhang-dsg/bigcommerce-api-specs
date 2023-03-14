@@ -1107,7 +1107,8 @@ components:
                 properties:
                   data:
                     $ref: '#/components/schemas/widgetTemplate_Full'
-              - properties:
+              - type: object
+                properties:
                   meta:
                     $ref: '#/components/schemas/Meta'
           examples:

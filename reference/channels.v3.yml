@@ -1426,12 +1426,14 @@ components:
                     links:
                       current: '?page=1&limit=50'
             allOf:
-              - properties:
+              - type: object
+                properties:
                   data:
                     type: array
                     items:
                       $ref: '#/components/schemas/metafield_Base'
-              - properties:
+              - type: object
+                properties:
                   meta:
                     $ref: '#/components/schemas/MetaWithFullPagination'
             type: object

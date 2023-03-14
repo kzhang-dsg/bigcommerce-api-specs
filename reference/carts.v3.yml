@@ -2082,7 +2082,8 @@ components:
             - variant_id
             - product_id
             - quantity
-        - properties:
+        - type: object
+          properties:
             is_require_shipping:
               type: boolean
             gift_wrapping:
@@ -2924,7 +2925,8 @@ components:
             - variant_id
             - product_id
             - quantity
-        - properties:
+        - type: object
+          properties:
             is_require_shipping:
               type: boolean
             gift_wrapping:

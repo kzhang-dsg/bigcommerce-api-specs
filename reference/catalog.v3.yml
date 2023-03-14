@@ -2723,7 +2723,8 @@ paths:
                         The video type (a short name of a host site).
                       enum:
                         - youtube
-                - properties:
+                - type: object
+                  properties:
                     video_id:
                       type: string
                       maxLength: 25
@@ -4475,7 +4476,8 @@ paths:
                             required:
                               - label
                               - sort_order
-                          - properties:
+                          - type: object
+                            properties:
                               id:
                                 type: integer
                                 description: |
@@ -4724,7 +4726,8 @@ paths:
                                   required:
                                     - label
                                     - sort_order
-                                - properties:
+                                - type: object
+                                  properties:
                                     id:
                                       type: integer
                                       description: |
@@ -21389,7 +21392,8 @@ components:
               description: The error title describing the particular error.
             type:
               type: string
-        - properties:
+        - type: object
+          properties:
             errors:
               $ref: '#/components/schemas/betadetailedErrors'
       type: object
