@@ -878,12 +878,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/GlobalOrderSettings'
-                  - type: object
-                    properties:
-                      meta:
-                        $ref: '#/components/schemas/metaEmpty_Full'
+                $ref: '#/components/schemas/GlobalOrderSettingsResponse'
               examples: {}
         '400':
           description: Bad request. Authentication Required.
@@ -915,12 +910,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - type: object
-                  - $ref: '#/components/schemas/GlobalOrderSettings'
-                  - properties:
-                      meta:
-                        $ref: '#/components/schemas/metaEmpty_Full'
+                $ref: '#/components/schemas/GlobalOrderSettingsResponse'
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -948,12 +938,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/ChannelOrderSettings'
-                  - type: object
-                    properties:
-                      meta:
-                        $ref: '#/components/schemas/metaEmpty_Full'
+                $ref: '#/components/schemas/ChannelOrderSettingsResponse'
               examples: {}
         '400':
           description: Bad request. Authentication Required.
@@ -990,12 +975,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/ChannelOrderSettings'
-                  - type: object
-                    properties:
-                      meta:
-                        $ref: '#/components/schemas/metaEmpty_Full'
+                $ref: '#/components/schemas/ChannelOrderSettingsResponse'
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -3023,6 +3003,13 @@ components:
       x-examples:
         example-1:
           $ref: '#/components/examples/EnableMultipleOrderNotifications/value'
+    GlobalOrderSettingsResponse:
+      allOf:
+        - $ref: '#/components/schemas/GlobalOrderSettings'
+        - type: object
+          properties:
+            meta:
+              $ref: '#/components/schemas/metaEmpty_Full'
     ChannelOrderSettings:
       type: object
       properties:
@@ -3053,6 +3040,13 @@ components:
       x-tags:
         - Models
       title: ChannelOrderSettings
+    ChannelOrderSettingsResponse:
+      allOf:
+        - $ref: '#/components/schemas/ChannelOrderSettings'
+        - type: object
+          properties:
+            meta:
+              $ref: '#/components/schemas/metaEmpty_Full'
     ErrorResponse400:
       type: object
       properties:
