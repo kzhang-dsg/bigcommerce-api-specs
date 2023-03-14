@@ -71,7 +71,8 @@ properties:
     description: Abandoned cart email triggers when a shopper doesnʼt complete an order.
     type: object
     oneOf:
-      - properties:
+      - type: object
+        properties:
           notification:
             type: array
             items:

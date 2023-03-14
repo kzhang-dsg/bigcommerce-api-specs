@@ -1415,7 +1415,8 @@ paths:
                 title: PriceRecord Batch Item
                 description: Price Record object used in batch create or update.
                 allOf:
-                  - properties:
+                  - type: object
+                    properties:
                       variant_id:
                         type: integer
                         description: |
@@ -1691,7 +1692,8 @@ paths:
                       title: Price Record
                       description: The Price Record object.
                       allOf:
-                        - properties:
+                        - type: object
+                          properties:
                             calculated_price:
                               type: number
                               description: |
@@ -2164,7 +2166,8 @@ paths:
                   data:
                     description: The Price Record object.
                     allOf:
-                      - properties:
+                      - type: object
+                        properties:
                           calculated_price:
                             type: number
                             format: double
@@ -2190,7 +2193,8 @@ paths:
                             example: 158
                       - description: Price Record object used in a batch create or update request.
                         allOf:
-                          - properties:
+                          - type: object
+                            properties:
                               price_list_id:
                                 type: integer
                                 description: |
@@ -2905,7 +2909,8 @@ components:
           type: array
           items:
             allOf:
-              - properties:
+              - type: object
+                properties:
                   id:
                     type: integer
                     description: |
@@ -3009,7 +3014,8 @@ components:
       properties:
         data:
           allOf:
-            - properties:
+            - type: object
+              properties:
                 id:
                   type: integer
                   description: |
@@ -3175,7 +3181,8 @@ components:
           items:
             description: The Price Record object.
             allOf:
-              - properties:
+              - type: object
+                properties:
                   calculated_price:
                     type: number
                     format: double
@@ -3201,7 +3208,8 @@ components:
                     example: 158
               - description: Price Record object used in batch create or update.
                 allOf:
-                  - properties:
+                  - type: object
+                    properties:
                       price_list_id:
                         type: integer
                         description: |
@@ -3351,7 +3359,8 @@ components:
         data:
           description: The Price Record object.
           allOf:
-            - properties:
+            - type: object
+              properties:
                 calculated_price:
                   type: number
                   format: double
@@ -3377,7 +3386,8 @@ components:
                   example: 158
             - description: Price Record object used in batch create or update.
               allOf:
-                - properties:
+                - type: object
+                  properties:
                     price_list_id:
                       type: integer
                       description: |
@@ -3537,7 +3547,8 @@ components:
     PriceRecord:
       description: The Price Record object.
       allOf:
-        - properties:
+        - type: object
+          properties:
             calculated_price:
               type: number
               format: double
@@ -3563,7 +3574,8 @@ components:
               example: 158
         - description: Price Record object used in batch create or update.
           allOf:
-            - properties:
+            - type: object
+              properties:
                 price_list_id:
                   type: integer
                   description: |
@@ -3755,7 +3767,8 @@ components:
       items:
         description: Price Record object used in a batch create or update request.
         allOf:
-          - properties:
+          - type: object
+            properties:
               variant_id:
                 type: integer
                 description: |
@@ -3842,7 +3855,8 @@ components:
     PriceRecordBatchItem:
       description: Price Record object used in batch create or update request.
       allOf:
-        - properties:
+        - type: object
+          properties:
             variant_id:
               type: integer
               description: |

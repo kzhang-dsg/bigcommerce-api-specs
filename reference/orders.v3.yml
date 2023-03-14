@@ -916,9 +916,9 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - type: object
                   - $ref: '#/components/schemas/GlobalOrderSettings'
-                  - properties:
+                  - type: object
+                    properties:
                       meta:
                         $ref: '#/components/schemas/metaEmpty_Full'
         '400':
@@ -3381,10 +3381,12 @@ components:
         application/json:
           schema:
             allOf:
-              - properties:
+              - type: object
+                properties:
                   data:
                     $ref: '#/components/schemas/Transaction_Post'
-              - properties:
+              - type: object
+                properties:
                   id:
                     type: integer
                     description: |
@@ -3410,7 +3412,8 @@ components:
                     $ref: '#/components/schemas/GiftCertificate'
                   store_credit:
                     $ref: '#/components/schemas/StoreCredit'
-              - properties:
+              - type: object
+                properties:
                   meta:
                     $ref: '#/components/schemas/metaEmpty_Full'
             type: object

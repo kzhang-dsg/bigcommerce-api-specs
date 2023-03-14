@@ -368,7 +368,8 @@ paths:
                     title: Shipping Zone Handling Fees
                     type: object
                     oneOf:
-                      - properties:
+                      - type: object
+                        properties:
                           fixed_surcharge:
                             description: Flat-rate handling fee applied to shipping cost.
                             example: '0'
