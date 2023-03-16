@@ -116,36 +116,7 @@ paths:
         content:
           application/json:
             schema:
-              description: ''
-              type: object
-              properties:
-                channel_id:
-                  type: number
-                code:
-                  type: string
-                  minLength: 1
-                data_tag_enabled:
-                  type: boolean
-                enabled:
-                  type: boolean
-                id:
-                  type: number
-                is_oauth_connected: {}
-                name:
-                  type: string
-                  minLength: 1
-                version:
-                  type: number
-              x-examples:
-                example-1:
-                  channel_id: 1
-                  code: GA-1234567890
-                  data_tag_enabled: false
-                  enabled: false
-                  id: 2
-                  is_oauth_connected: null
-                  name: Visual Website Optimizer
-                  version: 1
+              $ref: '#/components/parameters/AnalyticsProviderPut'
       responses:
         '200':
           description: Successful operation.
@@ -1513,6 +1484,37 @@ components:
       items:
         $ref: '#/components/schemas/AnalyticsProvider'
       x-internal: false
+    AnalyticsProviderPut:
+      description: ''
+      type: object
+      properties:
+        channel_id:
+          type: number
+        code:
+          type: string
+          minLength: 1
+        data_tag_enabled:
+          type: boolean
+        enabled:
+          type: boolean
+        id:
+          type: number
+        is_oauth_connected: {}
+        name:
+          type: string
+          minLength: 1
+        version:
+          type: number
+      x-examples:
+        example-1:
+          channel_id: 1
+          code: GA-1234567890
+          data_tag_enabled: false
+          enabled: false
+          id: 2
+          is_oauth_connected: null
+          name: Visual Website Optimizer
+          version: 1
     AvailableFilter:
       type: object
       oneOf:
