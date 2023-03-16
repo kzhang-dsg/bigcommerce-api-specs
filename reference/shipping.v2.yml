@@ -198,85 +198,7 @@ paths:
         content:
           application/json:
             schema:
-              title: Shipping Zone
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: Zone name. Required for PUT requests.
-                  example: United States
-                type:
-                  type: string
-                  enum:
-                    - zip
-                    - country
-                    - state
-                    - global
-                locations:
-                  description: Array of zone locations.
-                  type: array
-                  items:
-                    title: Shipping Zone Locations
-                    type: object
-                    properties:
-                      id:
-                        description: Location’s ID.
-                        example: 3
-                        type: integer
-                      zip:
-                        description: Location’s ZIP/postal code.
-                        example: '12345'
-                        type: string
-                      country_iso2:
-                        description: 2-letter ISO Alpha-2 code for the country.
-                        example: US
-                        type: string
-                      state_iso2:
-                        description: ISO Alpha-2 code for the state.
-                        example: TX
-                        type: string
-                free_shipping:
-                  type: object
-                  properties:
-                    enabled:
-                      type: boolean
-                    minimum_sub_total:
-                      type: string
-                      example: '0.0000'
-                      description: '(Float, Float-As-String, Integer)'
-                    exclude_fixed_shipping_products:
-                      type: boolean
-                handling_fees:
-                  title: Shipping Zone Handling Fees
-                  type: object
-                  oneOf:
-                    - properties:
-                        fixed_surcharge:
-                          description: Flat-rate handling fee applied to shipping cost.
-                          example: '0'
-                          type: string
-                        display_separately:
-                          description: Indicates whether store displays handling fee separately at checkout.
-                          example: true
-                          type: boolean
-                      title: fixed surcharge
-                    - properties:
-                        percentage_surcharge:
-                          description: Percentage handling fee applied to shipping cost.
-                          example: '5'
-                          type: string
-                        display_separately:
-                          description: Indicates whether store displays handling fee separately at checkout.
-                          example: true
-                          type: boolean
-                      title: percentage surcharge
-                enabled:
-                  description: Whether this shipping zone is enabled.
-                  example: true
-                  type: boolean
-              required:
-                - name
-                - type
+              $ref: '#/components/schemas/ShippingZonePost'
             examples:
               'Type: ZIP':
                 value:
@@ -501,89 +423,7 @@ paths:
         content:
           application/json:
             schema:
-              title: Shipping Zone
-              type: object
-              properties:
-                id:
-                  type: integer
-                  description: Zone ID. Read-only.
-                  example: 1
-                  readOnly: true
-                name:
-                  type: string
-                  description: Zone name. Required for PUT requests.
-                  example: United States
-                type:
-                  type: string
-                  enum:
-                    - zip
-                    - country
-                    - state
-                    - global
-                locations:
-                  description: Array of zone locations.
-                  type: array
-                  items:
-                    title: Shipping Zone Locations
-                    type: object
-                    properties:
-                      id:
-                        description: Location’s ID.
-                        example: 3
-                        type: integer
-                      zip:
-                        description: Location’s ZIP/postal code.
-                        example: '12345'
-                        type: string
-                      country_iso2:
-                        description: 2-letter ISO Alpha-2 code for the country.
-                        example: US
-                        type: string
-                      state_iso2:
-                        description: ISO Alpha-2 code for the state.
-                        example: TX
-                        type: string
-                free_shipping:
-                  type: object
-                  properties:
-                    enabled:
-                      type: boolean
-                    minimum_sub_total:
-                      type: string
-                      example: '0.0000'
-                      description: '(Float, Float-As-String, Integer)'
-                    exclude_fixed_shipping_products:
-                      type: boolean
-                handling_fees:
-                  title: Shipping Zone Handling Fees
-                  type: object
-                  oneOf:
-                    - properties:
-                        fixed_surcharge:
-                          description: Flat-rate handling fee applied to shipping cost.
-                          example: '0'
-                          type: string
-                        display_separately:
-                          description: Indicates whether store displays handling fee separately at checkout.
-                          example: true
-                          type: boolean
-                      title: fixed surcharge
-                    - properties:
-                        percentage_surcharge:
-                          description: Percentage handling fee applied to shipping cost.
-                          example: '5'
-                          type: string
-                        display_separately:
-                          description: Indicates whether store displays handling fee separately at checkout.
-                          example: true
-                          type: boolean
-                      title: percentage surcharge
-                enabled:
-                  description: Whether this shipping zone is enabled.
-                  example: true
-                  type: boolean
-              required:
-                - name
+              $ref: '#/components/schemas/ShippingZonePut'
         required: true
       responses:
         '200':
@@ -2189,6 +2029,170 @@ components:
       required:
         - name
       x-internal: false
+    ShippingZonePost:
+      title: Shipping Zone
+      type: object
+      properties:
+        name:
+          type: string
+          description: Zone name. Required for PUT requests.
+          example: United States
+        type:
+          type: string
+          enum:
+            - zip
+            - country
+            - state
+            - global
+        locations:
+          description: Array of zone locations.
+          type: array
+          items:
+            title: Shipping Zone Locations
+            type: object
+            properties:
+              id:
+                description: Location’s ID.
+                example: 3
+                type: integer
+              zip:
+                description: Location’s ZIP/postal code.
+                example: '12345'
+                type: string
+              country_iso2:
+                description: 2-letter ISO Alpha-2 code for the country.
+                example: US
+                type: string
+              state_iso2:
+                description: ISO Alpha-2 code for the state.
+                example: TX
+                type: string
+        free_shipping:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            minimum_sub_total:
+              type: string
+              example: '0.0000'
+              description: '(Float, Float-As-String, Integer)'
+            exclude_fixed_shipping_products:
+              type: boolean
+        handling_fees:
+          title: Shipping Zone Handling Fees
+          type: object
+          oneOf:
+            - properties:
+                fixed_surcharge:
+                  description: Flat-rate handling fee applied to shipping cost.
+                  example: '0'
+                  type: string
+                display_separately:
+                  description: Indicates whether store displays handling fee separately at checkout.
+                  example: true
+                  type: boolean
+              title: fixed surcharge
+            - properties:
+                percentage_surcharge:
+                  description: Percentage handling fee applied to shipping cost.
+                  example: '5'
+                  type: string
+                display_separately:
+                  description: Indicates whether store displays handling fee separately at checkout.
+                  example: true
+                  type: boolean
+              title: percentage surcharge
+        enabled:
+          description: Whether this shipping zone is enabled.
+          example: true
+          type: boolean
+      required:
+        - name
+        - type
+    ShippingZonePut:
+      title: Shipping Zone
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Zone ID. Read-only.
+          example: 1
+          readOnly: true
+        name:
+          type: string
+          description: Zone name. Required for PUT requests.
+          example: United States
+        type:
+          type: string
+          enum:
+            - zip
+            - country
+            - state
+            - global
+        locations:
+          description: Array of zone locations.
+          type: array
+          items:
+            title: Shipping Zone Locations
+            type: object
+            properties:
+              id:
+                description: Location’s ID.
+                example: 3
+                type: integer
+              zip:
+                description: Location’s ZIP/postal code.
+                example: '12345'
+                type: string
+              country_iso2:
+                description: 2-letter ISO Alpha-2 code for the country.
+                example: US
+                type: string
+              state_iso2:
+                description: ISO Alpha-2 code for the state.
+                example: TX
+                type: string
+        free_shipping:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            minimum_sub_total:
+              type: string
+              example: '0.0000'
+              description: '(Float, Float-As-String, Integer)'
+            exclude_fixed_shipping_products:
+              type: boolean
+        handling_fees:
+          title: Shipping Zone Handling Fees
+          type: object
+          oneOf:
+            - properties:
+                fixed_surcharge:
+                  description: Flat-rate handling fee applied to shipping cost.
+                  example: '0'
+                  type: string
+                display_separately:
+                  description: Indicates whether store displays handling fee separately at checkout.
+                  example: true
+                  type: boolean
+              title: fixed surcharge
+            - properties:
+                percentage_surcharge:
+                  description: Percentage handling fee applied to shipping cost.
+                  example: '5'
+                  type: string
+                display_separately:
+                  description: Indicates whether store displays handling fee separately at checkout.
+                  example: true
+                  type: boolean
+              title: percentage surcharge
+        enabled:
+          description: Whether this shipping zone is enabled.
+          example: true
+          type: boolean
+      required:
+        - name
     ShippingZoneLocations:
       title: Shipping Zone Locations
       type: object
