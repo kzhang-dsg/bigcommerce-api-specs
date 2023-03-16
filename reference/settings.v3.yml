@@ -116,7 +116,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/parameters/AnalyticsProviderPut'
+              $ref: '#/components/schemas/AnalyticsProviderPut'
       responses:
         '200':
           description: Successful operation.
