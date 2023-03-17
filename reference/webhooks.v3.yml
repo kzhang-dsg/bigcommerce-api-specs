@@ -210,14 +210,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                emails:
-                  type: array
-                  items:
-                    type: string
-                    format: email
-                    example: 'webhooks@example.com'
+              $ref: '#/components/schemas/WebhookAdminInfoBase'
             examples:
               Example:
                 value:
@@ -3086,6 +3079,16 @@ components:
                       type: integer
                       format: int64
                       description: UTC timestamp in seconds that the events was created
+    WebhookAdminInfoBase:
+      type: object
+      properties:
+        emails:
+          description: Email addresses to be sent notifications.
+          type: array
+          items:
+            type: string
+            format: email
+            example: 'webhooks@example.com'
     Pagination:
       type: object
       description: |
