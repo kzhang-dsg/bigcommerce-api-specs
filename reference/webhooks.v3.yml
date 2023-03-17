@@ -187,80 +187,7 @@ paths:
                 type: object
                 properties:
                   data:
-                    type: object
-                    properties:
-                      emails:
-                        description: Email addresses to be sent notifications.
-                        type: array
-                        items:
-                          type: string
-                          format: email
-                          example: 'webhooks@example.com'
-                      hooks_list:
-                        description: 'List of all the webhooks associated with the provider API account, filtered by the "active" parameter.'
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                              description: ID of the webhook
-                            client_id:
-                              type: string
-                              minLength: 1
-                              description: 'Client ID, unique to the store or app.'
-                            store_hash:
-                              minLength: 1
-                              type: string
-                              description: Permanent ID of the BigCommerce store.
-                            scope:
-                              type: string
-                              minLength: 1
-                              description: Event you subscribe to
-                              example: store/order/*
-                            destination:
-                              type: string
-                              minLength: 1
-                              description: 'URL must be active, return a 200 response, and be served on port 443 (custom ports not currently supported)'
-                            headers:
-                              type: object
-                              description: You can pass in any number of custom headers to validate webhooks being returned.
-                            is_active:
-                              type: boolean
-                              description: If webhook is active or not
-                              default: true
-                            created_at:
-                              type: integer
-                              description: Created time
-                            updated_at:
-                              type: integer
-                              description: Updated time
-                      blocked_domains:
-                        description: List of domains (destinations) that are currently on the denylist and are not being sent webhooks.
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            destination:
-                              description: Domain URL to which webhooks are sent.
-                              type: string
-                              format: url
-                            time_left:
-                              description: Remaining time in seconds that the domain is on the denylist.
-                              type: integer
-                            reasons:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  failure_description:
-                                    type: string
-                                  count:
-                                    type: integer
-                                  timestamp:
-                                    type: integer
-                                    format: int64
-                                    description: UTC timestamp in seconds that the events was created
+                    $ref: '#/components/schemas/WebhookAdminInfo'
                   meta:
                     type: object
                     properties:
@@ -640,6 +567,81 @@ components:
                     per_page: 100
                     total: 5
                     total_pages: 1
+    WebhookAdminInfo:
+      type: object
+      properties:
+        emails:
+          description: Email addresses to be sent notifications.
+          type: array
+          items:
+            type: string
+            format: email
+            example: 'webhooks@example.com'
+        hooks_list:
+          description: 'List of all the webhooks associated with the provider API account, filtered by the "active" parameter.'
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID of the webhook
+              client_id:
+                type: string
+                minLength: 1
+                description: 'Client ID, unique to the store or app.'
+              store_hash:
+                minLength: 1
+                type: string
+                description: Permanent ID of the BigCommerce store.
+              scope:
+                type: string
+                minLength: 1
+                description: Event you subscribe to
+                example: store/order/*
+              destination:
+                type: string
+                minLength: 1
+                description: 'URL must be active, return a 200 response, and be served on port 443 (custom ports not currently supported)'
+              headers:
+                type: object
+                description: You can pass in any number of custom headers to validate webhooks being returned.
+              is_active:
+                type: boolean
+                description: If webhook is active or not
+                default: true
+              created_at:
+                type: integer
+                description: Created time
+              updated_at:
+                type: integer
+                description: Updated time
+        blocked_domains:
+          description: List of domains (destinations) that are currently on the denylist and are not being sent webhooks.
+          type: array
+          items:
+            type: object
+            properties:
+              destination:
+                description: Domain URL to which webhooks are sent.
+                type: string
+                format: url
+              time_left:
+                description: Remaining time in seconds that the domain is on the denylist.
+                type: integer
+              reasons:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    failure_description:
+                      type: string
+                    count:
+                      type: integer
+                    timestamp:
+                      type: integer
+                      format: int64
+                      description: UTC timestamp in seconds that the events was created
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token
