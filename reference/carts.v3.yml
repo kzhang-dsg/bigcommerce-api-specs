@@ -1324,7 +1324,7 @@ components:
           description: 'Sum of cart line-item amounts before cart-level discounts, coupons, or taxes.'
         discount_amount:
           type: number
-          description: Discounted amount.
+          description: Order-based discounted amount only - Excludes coupon discounts and product-based discounts.
         cart_amount:
           type: number
           description: Sum of cart line-item amounts minus cart-level discounts and coupons. This amount includes taxes (where applicable).
@@ -2423,6 +2423,22 @@ components:
         name:
           type: string
           description: Optionally, provide a value to override the product name.
+        weight:
+          type: number
+          description: Optionally, provide a value to override the product weight.
+        dimensions:
+          type: object
+          description: Optionally, provide a value to override the product dimensions.
+          properties:
+            height:
+              type: number
+              description: The custom height of the product.
+            width:
+              type: number
+              description: The custom width of the product.
+            depth:
+              type: number
+              description: The custom depth of the product.
         gift_wrapping:
           type: object
           properties:
@@ -2474,6 +2490,22 @@ components:
         name:
           type: string
           description: Optionally, provide a value to override the product name.
+        weight:
+          type: number
+          description: Optionally, provide a value to override the product weight.
+        dimensions:
+          type: object
+          description: Optionally, provide a value to override the product dimensions.
+          properties:
+            height:
+              type: number
+              description: The custom height of the product.
+            width:
+              type: number
+              description: The custom width of the product.
+            depth:
+              type: number
+              description: The custom depth of the product.
         option_selections:
           type: array
           description: Needed for Catalog V2.
@@ -2795,6 +2827,25 @@ components:
               type: string
               description: The item’s product name.
               example: T-Shirt
+            weight:
+              type: number
+              description: The weight is displayed here if the item has a custom dimension.
+              example: 1.2
+            dimensions:
+              type: object
+              properties:
+                height:
+                  type: number
+                  description: The height is displayed here if the item has a custom dimension.
+                  example: 2.0
+                width:
+                  type: number
+                  description: The width is displayed here if the item has a custom dimension.
+                  example: 2.1
+                depth:
+                  type: number
+                  description: The depth is displayed here if the item has a custom dimension.
+                  example: 2.2
             url:
               description: The product URL.
               type: string

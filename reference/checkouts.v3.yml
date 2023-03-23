@@ -7813,7 +7813,7 @@ components:
               description: ID of channel
             discount_amount:
               type: number
-              description: Discounted amount.
+              description: Order-based discounted amount only - Excludes coupon discounts and product-based discounts.
               format: double
               example: 0.5
             cart_amount_inc_tax:
@@ -8396,6 +8396,8 @@ components:
                 description: Array lists only one line item. To display multiple `line_item_ids`, perform a `POST` request to add consignments to the checkout using the same address.
                 items:
                   type: string
+              selected_pickup_option:
+                $ref: '#/components/schemas/PickupOption'
         taxes:
           type: array
           description: ''
@@ -8656,6 +8658,12 @@ components:
                   type: integer
                   description: ''
                   format: int32
+          pickup_option:
+            type: object
+            properties:
+              pickup_method_id:
+                type: integer
+                example: 1                  
       x-internal: false
     UpdateConsignmentRequest:
       title: Update Consignment Request
@@ -8740,6 +8748,12 @@ components:
           shipping_option_id:
             type: string
             description: ''
+          pickup_option:
+            type: object
+            properties:
+              pickup_method_id:
+                type: integer
+                example: 1
       description: One or more of these three fields are mandatory. `address` and `line_items` can be updated in one request. `shipping_option_id` has to be updated in a separate request because changing the address or line items can invalidate the previously available shipping options.
       x-internal: false
     CouponCodeRequest:
@@ -8827,6 +8841,12 @@ components:
           example: beb3590088be88f59ba980d54a68df655cd8a1052a3e9caf535f3f820146c226
         meta:
           $ref: '#/components/schemas/MetaOpen'
+    PickupOption:
+      type: object
+      title: Pickup Option
+      properties:
+        pickup_method_id:
+          type: integer
     MetaOpen:
       title: Response meta
       type: object
