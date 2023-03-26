@@ -2696,6 +2696,7 @@ paths:
                 The model for a POST to create a video on a product.
               allOf:
                 - title: Product Video Base
+                  type: object
                   description: Common Product Video properties.
                   properties:
                     title:
@@ -4253,6 +4254,7 @@ paths:
               allOf:
                 - title: Option Base
                   description: Common Option properties.
+                  type: object
                   properties:
                     product_id:
                       type: integer
@@ -4445,6 +4447,7 @@ paths:
                         title: Option Value
                         allOf:
                           - title: Option Value Base
+                            type: object
                             description: Common Option Value properties.
                             properties:
                               is_default:
@@ -4695,6 +4698,7 @@ paths:
                               title: Option Value
                               allOf:
                                 - title: Option Value Base
+                                  type: object
                                   description: Common Option Value properties.
                                   properties:
                                     is_default:

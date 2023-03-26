@@ -1434,6 +1434,7 @@ paths:
                         format: ISO-4217
                         example: usd
                   - title: PriceRecord Base
+                    type: object
                     description: Common Price Record properties.
                     properties:
                       price:
@@ -1718,6 +1719,7 @@ paths:
                                 The id of the `Product` this `Price Record`'s variant_id is associated with. Read only.
                               example: 158
                         - title: Price Record Identifiers
+                          type: object
                           description: Price Record object used in batch create or update.
                           properties:
                             price_list_id:
@@ -1740,6 +1742,7 @@ paths:
                                 The 3-letter currency code with which this price set is associated.
                               example: usd
                         - title: PriceRecord Base
+                          type: object
                           description: Common Price Record properties.
                           properties:
                             price:
