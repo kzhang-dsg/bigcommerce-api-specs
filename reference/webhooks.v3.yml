@@ -3041,6 +3041,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/webhook_Base'
         - title: webhook_Full
+          type: object
           properties:
             id:
               type: integer

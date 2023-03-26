@@ -1834,6 +1834,7 @@ components:
           schema:
             anyOf:
               - title: AddressCollectionResponse
+                type: object
                 description: Response payload for the BigCommerce API.
                 example:
                   data:
@@ -1932,6 +1933,7 @@ components:
                   meta:
                     $ref: '#/components/schemas/MetaOpen'
               - title: DuplicateAddressCollectionResponse
+                type: object
                 example: {}
             type: object
             properties:
