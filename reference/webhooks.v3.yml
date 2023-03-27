@@ -225,6 +225,8 @@ paths:
                             headers:
                               type: object
                               description: You can pass in any number of custom headers to validate webhooks being returned.
+                              additionalProperties:
+                                type: string
                             is_active:
                               type: boolean
                               description: If webhook is active or not
@@ -453,6 +455,8 @@ components:
                     headers:
                       type: object
                       nullable: true
+                      additionalProperties:
+                        type: string
                     is_active:
                       type: boolean
                     created_at:
@@ -603,7 +607,10 @@ components:
                   destination:
                     type: string
                     minLength: 1
-                  headers: {}
+                  headers:
+                    type: object
+                    additionalProperties:
+                      type: string
                   is_active:
                     type: boolean
                   created_at:
@@ -3030,9 +3037,8 @@ components:
           type: object
           description: 'Headers used to validate that webhooks are active. You can pass in any number of custom headers to validate webhooks are being returned. '
           nullable: true
-          properties:
-            custom:
-              type: string
+          additionalProperties:
+            type: string
       required:
         - scope
         - destination
