@@ -436,7 +436,8 @@ paths:
             examples:
               example-1:
                 value:
-                  - name: Smith Journal 13
+                  - id: 0
+                    name: Smith Journal 13
                     type: physical
                     sku: SM-13
                     description: '<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>'
@@ -20183,11 +20184,21 @@ components:
       description: The model for batch updating products.
       x-internal: false
       items:
+        type: object
         allOf:
+          - type: object
+            properties:
+              id:
+                type: integer
+                description: Unique ID of the *Product*. Read-Only.
+                readOnly: true
+            required:
+              - id
           - $ref: '#/components/schemas/product_Base'
       x-examples:
         example-1:
-          - name: Smith Journal 13
+          - id: 0
+            name: Smith Journal 13
             type: physical
             sku: SM-13
             description: '<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>'
