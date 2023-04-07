@@ -7794,11 +7794,16 @@ paths:
             examples:
               example-1:
                 value:
-                  '0': null
-                  '592': null
                   maxUses: 1
                   ttl: 2
       description: Use the checkout token to display a confirmation page for a guest shopper.
+                    
+                    **Usage Notes**
+                    * The response from performing this POST request is a checkout token. 
+                    * The checkout token is a single-use token that is not order-dependent. You cannot create this token after finalizing an order.
+                    * After completing the order, you can redirect the shopper to /order-confirmation/{orderId}?t={checkoutToken}.
+                    * After token validation, the /order-confirmation/{orderId} page displays.
+                    * The `ORDER_TOKEN` should match the order or the logged-in customer can access the order.
 components:
   schemas:
     Checkout:
@@ -7846,7 +7851,7 @@ components:
               description: ID of channel
             discount_amount:
               type: number
-              description: Discounted amount.
+              description: Order-based discounted amount only - Excludes coupon discounts and product-based discounts.
               format: double
               example: 0.5
             cart_amount_inc_tax:
@@ -8425,6 +8430,8 @@ components:
                 description: Array lists only one line item. To display multiple `line_item_ids`, perform a `POST` request to add consignments to the checkout using the same address.
                 items:
                   type: string
+              selected_pickup_option:
+                $ref: '#/components/schemas/PickupOption'
         taxes:
           type: array
           description: ''
@@ -8685,6 +8692,12 @@ components:
                   type: integer
                   description: ''
                   format: int32
+          pickup_option:
+            type: object
+            properties:
+              pickup_method_id:
+                type: integer
+                example: 1                  
       x-internal: false
     UpdateConsignmentRequest:
       title: Update Consignment Request
@@ -8769,6 +8782,12 @@ components:
           shipping_option_id:
             type: string
             description: ''
+          pickup_option:
+            type: object
+            properties:
+              pickup_method_id:
+                type: integer
+                example: 1
       description: One or more of these three fields are mandatory. `address` and `line_items` can be updated in one request. `shipping_option_id` has to be updated in a separate request because changing the address or line items can invalidate the previously available shipping options.
       x-internal: false
     CouponCodeRequest:
@@ -8817,6 +8836,12 @@ components:
           type: boolean
           description: Boolean value that specifies whether this checkout supports Optimized One-Page Checkout settings.
       description: ''
+    PickupOption:
+      type: object
+      title: Pickup Option
+      properties:
+        pickup_method_id:
+          type: integer
     MetaOpen:
       title: Response meta
       type: object
