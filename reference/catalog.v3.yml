@@ -16983,7 +16983,9 @@ components:
           description: 'Order in which the option is displayed on the storefront. '
           example: 1
         option_values:
-          $ref: '#/components/schemas/productOptionOptionValue_Full'
+          type: array
+          items:
+            $ref: '#/components/schemas/productOptionOptionValue_Full'
       description: Common Option properties.
       x-internal: false
     productOption_Full:
