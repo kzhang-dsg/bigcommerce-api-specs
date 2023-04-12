@@ -454,8 +454,6 @@ paths:
                     product_tax_code: string
                     categories:
                       - 0
-                    channels:
-                      - 1
                     brand_id: 0
                     inventory_level: 0
                     inventory_warning_level: 0
@@ -575,8 +573,6 @@ paths:
                         product_tax_code: string
                         categories:
                           - 0
-                        channels:
-                          - 1
                         brand_id: 0
                         inventory_level: 0
                         inventory_warning_level: 0
@@ -652,7 +648,7 @@ paths:
                             date_modified: '2019-08-24T14:15:22Z'
                         videos:
                           - title: Writing Great Documentation
-                            description: A video about documenation
+                            description: A video about documentation
                             sort_order: 1
                             type: youtube
                             video_id: z3fRu9pkuXE
@@ -697,11 +693,11 @@ paths:
                               product_list_shipping_calc: weight
                             sort_order: 1
                             option_values:
-                              is_default: false
-                              label: Green
-                              sort_order: 0
-                              value_data: {}
-                              id: 0
+                              - is_default: false
+                                label: Green
+                                sort_order: 0
+                                value_data: {}
+                                id: 0
                         modifiers:
                           - type: date
                             required: true
@@ -1400,8 +1396,6 @@ paths:
                   categories:
                     - 23
                     - 21
-                  channels:
-                    - 1
                   brand_id: 36
                   option_set_id: 55
                   option_set_display: right
@@ -2002,18 +1996,22 @@ paths:
                         The local path to the original image file uploaded to BigCommerce.
                         A `multipart/form-data` media type.
                     url_zoom:
+                      readOnly: true
                       type: string
                       description: |
                         The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
                     url_standard:
+                      readOnly: true
                       type: string
                       description: |
                         The standard URL for this image. By default, this is used for product-page images.
                     url_thumbnail:
+                      readOnly: true
                       type: string
                       description: |
                         The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
                     url_tiny:
+                      readOnly: true
                       type: string
                       description: |
                         The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -2069,18 +2067,22 @@ paths:
                         The local path to the original image file uploaded to BigCommerce.
                         A `multipart/form-data` media type.
                     url_zoom:
+                      readOnly: true
                       type: string
                       description: |
                         The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
                     url_standard:
+                      readOnly: true
                       type: string
                       description: |
                         The standard URL for this image. By default, this is used for product-page images.
                     url_thumbnail:
+                      readOnly: true
                       type: string
                       description: |
                         The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
                     url_tiny:
+                      readOnly: true
                       type: string
                       description: |
                         The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -2146,18 +2148,22 @@ paths:
 
                               A `multipart/form-data` media type.
                           url_zoom:
+                            readOnly: true
                             type: string
                             description: |
                               The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
                           url_standard:
+                            readOnly: true
                             type: string
                             description: |
                               The standard URL for this image. By default, this is used for product-page images.
                           url_thumbnail:
+                            readOnly: true
                             type: string
                             description: |
                               The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
                           url_tiny:
+                            readOnly: true
                             type: string
                             description: |
                               The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -2197,18 +2203,22 @@ paths:
                               The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
                               A `multipart/form-data` media type.
                           url_zoom:
+                            readOnly: true
                             type: string
                             description: |
                               The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
                           url_standard:
+                            readOnly: true
                             type: string
                             description: |
                               The standard URL for this image. By default, this is used for product-page images.
                           url_thumbnail:
+                            readOnly: true
                             type: string
                             description: |
                               The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
                           url_tiny:
+                            readOnly: true
                             type: string
                             description: |
                               The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -2431,18 +2441,22 @@ paths:
                             description: |
                               The local path to the original image file uploaded to BigCommerce.
                           url_zoom:
+                            readOnly: true
                             type: string
                             description: |
                               The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
                           url_standard:
+                            readOnly: true
                             type: string
                             description: |
                               The standard URL for this image. By default, this is used for product-page images.
                           url_thumbnail:
+                            readOnly: true
                             type: string
                             description: |
                               The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
                           url_tiny:
+                            readOnly: true
                             type: string
                             description: |
                               The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -2481,18 +2495,22 @@ paths:
                             description: |
                               The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
                           url_zoom:
+                            readOnly: true
                             type: string
                             description: |
                               The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
                           url_standard:
+                            readOnly: true
                             type: string
                             description: |
                               The standard URL for this image. By default, this is used for product-page images.
                           url_thumbnail:
+                            readOnly: true
                             type: string
                             description: |
                               The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
                           url_tiny:
+                            readOnly: true
                             type: string
                             description: |
                               The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -18923,18 +18941,22 @@ components:
               description: |
                 The local path to the original image file uploaded to BigCommerce.
             url_zoom:
+              readOnly: true
               type: string
               description: |
                 The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
             url_standard:
+              readOnly: true
               type: string
               description: |
                 The standard URL for this image. By default, this is used for product-page images.
             url_thumbnail:
+              readOnly: true
               type: string
               description: |
                 The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
             url_tiny:
+              readOnly: true
               type: string
               description: |
                 The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -18981,18 +19003,22 @@ components:
               description: |
                 The unique numeric identifier for the product with which the image is associated.
             url_zoom:
+              readOnly: true
               type: string
               description: |
                 The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
             url_standard:
+              readOnly: true
               type: string
               description: |
                 The standard URL for this image. By default, this is used for product-page images.
             url_thumbnail:
+              readOnly: true
               type: string
               description: |
                 The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
             url_tiny:
+              readOnly: true
               type: string
               description: |
                 The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -20168,18 +20194,22 @@ components:
               description: |
                 The unique numeric identifier for the product with which the image is associated.
             url_zoom:
+              readOnly: true
               type: string
               description: |
                 The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
             url_standard:
+              readOnly: true
               type: string
               description: |
                 The standard URL for this image. By default, this is used for product-page images.
             url_thumbnail:
+              readOnly: true
               type: string
               description: |
                 The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
             url_tiny:
+              readOnly: true
               type: string
               description: |
                 The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -20599,8 +20629,6 @@ components:
           product_tax_code: string
           categories:
             - 0
-          channels:
-            - 1
           brand_id: 0
           inventory_level: 0
           inventory_warning_level: 0
@@ -20790,12 +20818,6 @@ components:
             - post
           items:
             type: integer
-        channels:
-          type: array
-          description: 'Optional. You can supply a single ID, multiple IDs, or leave the field empty.'
-          items:
-            type: number
-            example: 1
         brand_id:
           maximum: 1000000000
           minimum: 0
@@ -25351,18 +25373,22 @@ components:
                           description: |
                             The local path to the original image file uploaded to BigCommerce.
                         url_zoom:
+                          readOnly: true
                           type: string
                           description: |
                             The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
                         url_standard:
+                          readOnly: true
                           type: string
                           description: |
                             The standard URL for this image. By default, this is used for product-page images.
                         url_thumbnail:
+                          readOnly: true
                           type: string
                           description: |
                             The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
                         url_tiny:
+                          readOnly: true
                           type: string
                           description: |
                             The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -25401,18 +25427,22 @@ components:
                           description: |
                             The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
                         url_zoom:
+                          readOnly: true
                           type: string
                           description: |
                             The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
                         url_standard:
+                          readOnly: true
                           type: string
                           description: |
                             The standard URL for this image. By default, this is used for product-page images.
                         url_thumbnail:
+                          readOnly: true
                           type: string
                           description: |
                             The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
                         url_tiny:
+                          readOnly: true
                           type: string
                           description: |
                             The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -25492,18 +25522,22 @@ components:
                         description: |
                           The local path to the original image file uploaded to BigCommerce.
                       url_zoom:
+                        readOnly: true
                         type: string
                         description: |
                           The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
                       url_standard:
+                        readOnly: true
                         type: string
                         description: |
                           The standard URL for this image. By default, this is used for product-page images.
                       url_thumbnail:
+                        readOnly: true
                         type: string
                         description: |
                           The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
                       url_tiny:
+                        readOnly: true
                         type: string
                         description: |
                           The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
@@ -25542,18 +25576,22 @@ components:
                         description: |
                           The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
                       url_zoom:
+                        readOnly: true
                         type: string
                         description: |
                           The zoom URL for this image. By default, this is used as the zoom image on product pages when zoom images are enabled.
                       url_standard:
+                        readOnly: true
                         type: string
                         description: |
                           The standard URL for this image. By default, this is used for product-page images.
                       url_thumbnail:
+                        readOnly: true
                         type: string
                         description: |
                           The thumbnail URL for this image. By default, this is the image size used on the category page and in side panels.
                       url_tiny:
+                        readOnly: true
                         type: string
                         description: |
                           The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
