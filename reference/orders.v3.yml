@@ -3145,7 +3145,6 @@ components:
                   primary_contact.district: error.expected.jsstring.
     503_ServiceUnavailable:
       description:  'If this occurs, you should retry the request. If you cannot successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down, and you will need to make the request again when it is back up (in several hours, usually).'
-
       content:
         application/json:
           schema:
