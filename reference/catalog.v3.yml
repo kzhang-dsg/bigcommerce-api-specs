@@ -18038,10 +18038,6 @@ components:
         - name
       type: object
       properties:
-        id:
-          type: integer
-          description: Unique ID of the *Brand*. Read-Only.
-          readOnly: true
         name:
           maxLength: 255
           minLength: 1
