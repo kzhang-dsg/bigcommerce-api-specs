@@ -21587,7 +21587,7 @@ components:
         - $ref: '#/components/schemas/default_product_sort'
         - type: object
           properties:
-            url:
+            custom_url:
               $ref: '#/components/schemas/Url'
       x-examples: {}
     CategoryUuidData:
@@ -21670,7 +21670,7 @@ components:
               type: boolean
             image_url:
               type: string
-            url:
+            custom_url:
               $ref: '#/components/schemas/Url'
     CategoryDataPUT:
       allOf:
@@ -21692,7 +21692,7 @@ components:
     Url:
       type: object
       properties:
-        path:
+        url:
           type: string
         is_customized:
           type: boolean
