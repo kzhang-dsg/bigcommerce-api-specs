@@ -17782,12 +17782,6 @@ components:
       type: object
       description: Common Category object properties.
       properties:
-        id:
-          type: integer
-          description: |-
-            Unique ID of the *Category*. Increments sequentially.
-            Read-Only.
-          readOnly: true
         parent_id:
           type: integer
           description: |-
