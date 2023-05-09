@@ -1376,10 +1376,6 @@ components:
       title: customer_Put
       type: object
       properties:
-        id:
-          type: integer
-          description: Unique numeric ID of this customer. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
-          example: 1
         _authentication:
           type: object
           properties:
