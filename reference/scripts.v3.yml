@@ -897,6 +897,9 @@ components:
       x-internal: false
       x-examples: {}
       properties:
+        name:
+          type: string
+          description: The user-friendly name.
         description:
           type: string
           description: The user-friendly description.
