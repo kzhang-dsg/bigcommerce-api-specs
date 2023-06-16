@@ -8579,11 +8579,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/productVideo_Full'
-      required:
-        - name
-        - type
-        - weight
-        - price
     metafield_Full:
       title: metafield_Full
       allOf:

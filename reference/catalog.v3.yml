@@ -19284,10 +19284,47 @@ components:
         - $ref: '#/components/schemas/product_Base'
         - type: object
           properties:
+            name:
+              maxLength: 250
+              minLength: 1
+              type: string
+              description: |
+                A unique product name.
+              example: Smith Journal 13
+              x-required:
+                - post
+            type:
+              type: string
+              description: |
+                The product type. One of: `physical` - a physical stock unit, `digital` - a digital download.
+              example: physical
+              enum:
+                - physical
+                - digital
+              x-required:
+                - post
+            weight:
+              maximum: 9999999999
+              minimum: 0
+              type: number
+              description: |
+                Weight of the product, which can be used when calculating shipping costs. This is based on the unit set on the store
+              format: float
+            price:
+              minimum: 0
+              type: number
+              description: |
+                The price of the product. The price should include or exclude tax, based on the store settings.
+              format: float
             variants:
               type: array
               items:
                 $ref: '#/components/schemas/productVariant_Post_Product'
+          required:
+            - name
+            - type
+            - weight
+            - price
       x-internal: false
     product_Put:
       title: product_Put
@@ -21087,11 +21124,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/productVideo_Full'
-      required:
-        - name
-        - type
-        - weight
-        - price
     metafield_Full:
       title: metafield_Full
       allOf:
