@@ -18187,6 +18187,10 @@ components:
           type: string
           description: Identifies where in a warehouse the variant is located.
           nullable: true
+        image_url:
+          type: string
+          description: Publicly available image url
+          nullable: true
         mpn:
           type: string
           description: The Manufacturer Part Number (MPN) for the variant.
