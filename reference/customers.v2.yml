@@ -606,8 +606,9 @@ paths:
               properties:
                 id:
                   type: integer
-                  description: ID of this customer address. READ-ONLY
+                  description: ID of this customer address. Read-Only.
                   example: 3
+                  readOnly: true
                 customer_id:
                   type: integer
                   description: ID of the associated customer.
@@ -649,8 +650,9 @@ paths:
                   example: United States
                 country_iso2:
                   type: string
-                  description: 2-letter ISO Alpha-2 code for the customer’s country. READ-ONLY
+                  description: 2-letter ISO Alpha-2 code for the customer’s country. Read-Only.
                   example: US
+                  readOnly: true
                 phone:
                   type: string
                   description: The customer’s phone number.
@@ -1143,15 +1145,18 @@ components:
           properties:
             id:
               type: integer
-              description: Unique numeric ID of this customer. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+              description: Unique numeric ID of this customer. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
               example: 1
+              readOnly: true
             date_created:
               type: string
-              description: Date on which the customer registered from the storefront or was created in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+              description: Date on which the customer registered from the storefront or was created in the control panel. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
+              readOnly: true
             date_modified:
               type: string
               description: |
-                Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+                Date on which the customer updated their details in the storefront or was updated in the control panel. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
+              readOnly: true
         - $ref: '#/components/schemas/customer_Base'
       x-internal: false
       x-examples: {}
@@ -1198,12 +1203,14 @@ components:
           properties:
             id:
               type: integer
-              description: ID of this customer address. READ-ONLY
+              description: ID of this customer address. Read-Only.
               example: 3
+              readOnly: true
             country_iso2:
               type: string
-              description: 2-letter ISO Alpha-2 code for the customer’s country. READ-ONLY
+              description: 2-letter ISO Alpha-2 code for the customer’s country. Read-Only.
               example: US
+              readOnly: true
         - $ref: '#/components/schemas/customerAddress_Base'
       x-internal: false
     customerGroup_Full:
@@ -1473,8 +1480,9 @@ components:
               example: /customers/5/addresses
         form_fields:
           type: array
-          description: Array of custom fields. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          description: Array of custom fields. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
           nullable: true
+          readOnly: true
           items:
             title: Form Fields
             type: object
@@ -1501,8 +1509,9 @@ components:
       properties:
         id:
           type: integer
-          description: Unique numeric ID of this customer. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          description: Unique numeric ID of this customer. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
           example: 1
+          readOnly: true
         _authentication:
           type: object
           properties:
@@ -1535,11 +1544,13 @@ components:
           example: '1234567890'
         date_created:
           type: string
-          description: Date on which the customer registered from the storefront or was created in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          description: Date on which the customer registered from the storefront or was created in the control panel. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
         date_modified:
           type: string
           description: |-
             Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
         store_credit:
           type: string
           description: The amount of credit the customer has. (Float, Float as String, Integer)
@@ -1577,7 +1588,8 @@ components:
               example: /customers/5/addresses
         form_fields:
           type: array
-          description: Array of custom fields. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+          description: Array of custom fields. This is a Read-Only field; do not set or modify its value in a POST or PUT request.
+          readOnly: true
           items:
             title: Form Fields
             type: object
