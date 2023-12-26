@@ -8,7 +8,7 @@ info:
     email: support@bigcommerce.com
   title: Channels
   description: |-
-    Create and manage sales [channels](/api-docs/channels/overview), their [sites](/docs/rest-management/channels/channel-site), and their [product listings](/docs/rest-management/channels/channel-listings).
+    Create and manage sales [channels](/docs/integrations/channels), their [sites](/docs/rest-management/channels/channel-site), and their [product listings](/docs/rest-management/channels/channel-listings).
 
     ## Channels
 
@@ -18,34 +18,43 @@ info:
 
     A channel's `type` and `platform` combination must be a valid pair as indicated in the table below.
 
-    | Platform          | Accepted Type             |
-    |-------------------|---------------------------|
-    | `square`          | `pos`                     |
-    | `stripe`          | `pos`                     |
-    | `vend`            | `pos`                     |
-    | `clover`          | `pos`                     |
-    | `talech`          | `pos`                     |
-    | `facebook by meta`| `marketplace`,`marketing` |
-    | `instagram by meta`| `marketplace`,`marketing`|
-    | `amazon`          | `marketplace`             |
-    | `ebay`            | `marketplace`             |
-    | `pinterest`       | `marketplace`             |
-    | `wayfair`         | `marketplace`             |
-    | `overstock`       | `marketplace`             |
-    | `etsy`            | `marketplace`             |
-    | `wish`            | `marketplace`             |
-    | `walmart`         | `marketplace`             |
-    | `bigcommerce`     | `storefront`              |
-    | `gatsby`          | `storefront`              |
-    | `wordpress`       | `storefront`              |
-    | `drupal`          | `storefront`              |
-    | `acquia`          | `storefront`              |
-    | `bloomreach`      | `storefront`              |
-    | `deity`           | `storefront`              |
-    | `next`            | `storefront`              |
-    | `vue`             | `storefront`              |
-    | `google_shopping` | `marketing`               |
-    | `custom`          | `storefront`, `pos`, `marketing`, `marketplace` |
+    | Platform            | Accepted Type |
+    |:--------------------|:--------------|
+    | `clover`            | `pos` |
+    | `square`            | `pos` |
+    | `stripe`            | `pos` |
+    | `talech`            | `pos` |
+    | `vend`              | `pos` |
+    | `amazon`            | `marketplace` |
+    | `belk`              | `marketplace` |
+    | `catch`             | `marketplace` |
+    | `ebay`              | `marketplace` |
+    | `etsy`              | `marketplace` |
+    | `facebook`  | `marketplace`, `marketing` |
+    | `hudsons_bay`       | `marketplace` |
+    | `google`            | `marketplace`, `marketing` |
+    | `google_shopping` (deprecated)   | `marketing` |
+    | `instagram` | `marketplace`, `marketing` |
+    | `macys`             | `marketplace` |
+    | `mirakl`            | `marketplace` |
+    | `overstock`         | `marketplace` |
+    | `pinterest`         | `marketplace` |
+    | `target_plus`       | `marketplace` |
+    | `tiktok`            | `marketplace` |
+    | `wayfair`           | `marketplace` |
+    | `wish`              | `marketplace` |
+    | `walmart`           | `marketplace` |
+    | `acquia`            | `storefront` |
+    | `bigcommerce`       | `storefront` |
+    | `bloomreach`        | `storefront` |
+    | `deity`             | `storefront` |
+    | `drupal`            | `storefront` |
+    | `gatsby`            | `storefront` |
+    | `next`              | `storefront` |
+    | `vue`               | `storefront` |
+    | `wordpress`         | `storefront` |
+    | `custom`            | `storefront`, `pos`, `marketing`, `marketplace` |
+        
 
     ### Status
 
@@ -72,9 +81,9 @@ info:
     ## Resources
 
     * [Sites and Routes API Reference](/docs/rest-management/sites)
-    * [Building Channels Overview](/api-docs/channels/overview)
-    * [Building Channel Apps](/api-docs/channels/building-channel-apps)
-    * [Channels Toolkit Reference](/api-docs/channels/channels-toolkit-reference)
+    * [Building Channels Overview](/docs/integrations/channels)
+    * [Building Channel Apps](/docs/integrations/channels/guide)
+    * [Channels Toolkit Reference](/docs/integrations/channels/toolkit-reference)
 servers:
   - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
     variables:
@@ -243,7 +252,7 @@ paths:
         - $ref: '#/components/parameters/ContentType'
       summary: Create Multiple Channels Currency Assignments
       operationId: createMultipleChannelsCurrencyAssignments
-      description: Sets enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
+      description: Sets enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
       requestBody:
         content:
           application/json:
@@ -265,7 +274,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ContentType'
       operationId: updateMultipleChannelsCurrencyAssignments
-      description: Updates enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
+      description: Updates enabled currencies and default currency for multiple channels. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
       requestBody:
         content:
           application/json:
@@ -302,7 +311,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ContentType'
       operationId: createSingleChannelCurrencyAssignments
-      description: Sets enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
+      description: Sets enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
       requestBody:
         content:
           application/json:
@@ -324,7 +333,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ContentType'
       operationId: updateSingleChannelCurrencyAssignments
-      description: Updates enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce Control Panel before the currencies can be assigned to a channel.
+      description: Updates enabled currencies and default currency for a specific channel. Note that currencies must be added first in the **Settings > Setup > Currencies** settings from an active MSF-enabled BigCommerce store control panel before the currencies can be assigned to a channel.
       requestBody:
         content:
           application/json:
@@ -686,10 +695,10 @@ paths:
       operationId: get-channels-channel_id-metafields
       parameters:
         - $ref: '#/components/parameters/PageParam'
-        - $ref: ./catalog.v3.yml#/components/parameters/LimitParam
-        - $ref: ./catalog.v3.yml#/components/parameters/MetafieldKeyParam
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/MetafieldKeyParam'
         - $ref: '#/components/parameters/MetafieldNamespaceParam'
-        - $ref: ./catalog.v3.yml#/components/parameters/DirectionParam
+        - $ref: '#/components/parameters/DirectionParam'
       description: Returns a list of metafields on a channel. Optional filter parameters can be passed in.
     post:
       summary: Create a Channel Metafield
@@ -987,6 +996,9 @@ components:
                   $ref: '#/components/schemas/ChannelWithoutCurrencies'
               meta:
                 $ref: '#/components/schemas/MetaWithFullPagination'
+            required:
+              - data
+              - meta
           examples:
             response:
               $ref: '#/components/examples/multiple_channels_without_currencies_resp_example'
@@ -1131,7 +1143,7 @@ components:
                 type: object
                 properties:
                   bigcommerce_protected_app_sections:
-                    $ref: '#/components/schemas/BigcommerceProtectedAppSections'
+                    $ref: '#/components/schemas/BigCommerceProtectedAppSections'
                   custom_app_sections:
                     $ref: '#/components/schemas/CustomAppSections'
               meta:
@@ -1168,6 +1180,8 @@ components:
               $ref: '#/components/examples/error_422_channel_resp_example'
             Invalid Type and Platform Combination:
               $ref: '#/components/examples/error_422_invalid_type_platform_combination_resp_example'
+            Invalid Channel Name:
+              $ref: '#/components/examples/error_422_invalid_channel_name_resp_example'
     channel_not_found_resp:
       description: A *Channel* with the provided ID was not found.
       content:
@@ -1224,6 +1238,8 @@ components:
               $ref: '#/components/examples/error_422_prevent_update_type_and_platform_resp_example'
             Update Deleted Channel Error:
               $ref: '#/components/examples/error_422_prevent_update_deleted_channel_resp_example'
+            Update Channel Name Error:
+              $ref: '#/components/examples/error_422_invalid_channel_name_resp_example'
     missing_or_invalid_multiple_channels_currency_assignments_data_resp:
       description: The request is missing one or more required fields or invalid data is submitted.
       content:
@@ -1296,7 +1312,7 @@ components:
       content:
         application/json:
           schema:
-            description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+            description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is 250. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
             x-internal: false
             type: object
             properties:
@@ -1921,6 +1937,12 @@ components:
         title: A deleted channel cannot be updated. Channel can be restored within 90 days after deleting by contacting BigCommerce support team
         type: /api-docs/getting-started/api-status-codes
         errors: {}
+    error_422_invalid_channel_name_resp_example:
+      value:
+        status: 422
+        title: Only latin alphabet letters, arabic numerals, dash and underscore are allowed to be used as channel name.
+        type: /api-docs/getting-started/api-status-codes
+        errors: {}
     error_422_multiple_channels_currency_assignments_resp_example:
       value:
         status: 422
@@ -2013,15 +2035,15 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
   schemas:
@@ -2184,7 +2206,7 @@ components:
         example-1: active
     ChannelName:
       type: string
-      description: Name of the channel as it will appear to merchants in the control panel.
+      description: Name of the channel as it will appear in the store control panel. The only characters it can include are Latin alphabet letters, Arabic numerals, dashes, and underscores.
       x-internal: false
       x-examples:
         example-1: string
@@ -2300,11 +2322,11 @@ components:
       properties:
         app:
           type: object
-          description: 'A [channel app](/api-docs/channels/overview#channel-apps) config object for optionally configuring the channelʼs user interface in the control panel.'
+          description: 'A [channel app](/docs/integrations/channels#channel-apps) config object for optionally configuring the channelʼs user interface in the control panel.'
           properties:
             id:
               type: integer
-              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if youʼre building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an Appʼs ID](/api-docs/apps/tutorials/id).'
+              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if youʼre building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an Appʼs ID](/docs/integrations/apps/guide/id).'
             sections:
               type: array
               description: 'Sections are now deprecated under config_meta. The new /channel-menus endpoints should be used instead. If set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'
@@ -2558,6 +2580,9 @@ components:
           $ref: '#/components/schemas/ChannelDateModified'
         icon_url:
           $ref: '#/components/schemas/IconUrl'
+      required:
+        - id
+        - name
       x-internal: false
     ChannelWithCurrencies:
       type: object
@@ -2632,9 +2657,9 @@ components:
           items:
             $ref: '#/components/schemas/ChannelProductVariantFull'
       x-internal: false
-    BigcommerceProtectedAppSections:
+    BigCommerceProtectedAppSections:
       type: array
-      description: 'List of pre-built UI pages an app developer can choose to enable for a channel.  More information can be found [here](https://developer.bigcommerce.com/docs/ZG9jOjM4MzMyMzA-building-storefront-channels#protected-ui-sections)'
+      description: 'List of channel-specific control panel menu navigation items and corresponding settings pages an app developer can choose to enable for the subject channel. Protected settings override any settings set in those UI sections at the storewide level. Learn more in the [Building Storefront Channels](/docs/integrations/channels/guide/storefronts#protected-ui-sections) tutorial.'
       items:
         type: string
         enum:
@@ -2648,7 +2673,7 @@ components:
       type: object
       properties:
         bigcommerce_protected_app_sections:
-          $ref: '#/components/schemas/BigcommerceProtectedAppSections'
+          $ref: '#/components/schemas/BigCommerceProtectedAppSections'
         custom_app_sections:
           $ref: '#/components/schemas/CustomAppSections'
     CustomAppSections:
@@ -2658,10 +2683,10 @@ components:
         properties:
           title:
             type: string
-            description: Text displayed to the merchant
+            description: Text displayed to the merchant.
           query_path:
             type: string
-            description: Value used in the `section` query param
+            description: Value used in the `section` query param.
         x-internal: false
     Error:
       type: object
@@ -2925,7 +2950,7 @@ components:
     metafield_Post:
       title: metafield_Post
       type: object
-      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is 250. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
       x-internal: false
       properties:
         namespace:
@@ -2987,7 +3012,7 @@ components:
     metafield_Put:
       title: metafield_Put
       type: object
-      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand 250. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
       x-internal: false
       properties:
         namespace:
@@ -3040,5 +3065,4 @@ components:
           type: string
           description: |
             Description for the metafield.
-          example: Location in the warehouse
-
+          example: Location in the warehouse.

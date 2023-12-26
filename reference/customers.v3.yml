@@ -6,7 +6,7 @@ info:
     Create and manage customers.
 
     ## Resources
-    * [Customer and Subscribers Overview](/api-docs/store-management/customers).
+    * [Customer and Subscribers Overview](/docs/store-operations/customers/customers-subscribers-overview).
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -171,13 +171,18 @@ paths:
              * `segment_ids`- segments the customer belongs to (Beta)
 
              `include=addresses,storecredit,attributes,formfields,shopper_profile_id,segment_ids`
+          explode: false
           schema:
-            type: string
-            enum:
-              - addresses
-              - storecredit
-              - attributes
-              - formfields
+            type: array
+            items:
+              type: string
+              enum:
+                - addresses
+                - storecredit
+                - attributes
+                - formfields
+                - shopper_profile_id
+                - segment_ids
         - in: query
           name: sort
           description: 'Sort items by date_created, date_modified, or last_name:* `date_created:asc` - date created, ascending* `date_created:desc` - date created, descending* `last_name:asc` - last name, ascending* `last_name:desc` - last name, descending * `date_modified:asc` - date modified, ascending* `date_modified:desc`- date modified, descending  Example: `sort=last_name:asc`'
@@ -213,9 +218,6 @@ paths:
         * Attributes must be [created](/docs/rest-management/customers/customer-attributes#create-a-customer-attribute) **BEFORE** creating a customer.
         * attribute_id
         * attribute_value -- This is input as a string, regardless of the [Type](/docs/rest-management/customers/customer-attributes#create-a-customer-attribute).
-
-        **Limits**
-        * Limit of 10 concurrent requests 
         
         **Notes**
 
@@ -347,22 +349,11 @@ paths:
                     last_name: string
                     company: string
                     phone: string
+                    registration_ip_address: string
                     notes: string
                     tax_exempt_category: string
                     customer_group_id: 0
                     id: 1
-                    addresses: 
-                    - address1: string
-                      address2: string
-                      address_type: string
-                      city: string
-                      company: string
-                      country_code: string
-                      first_name: string
-                      last_name: string
-                      phone: string
-                      postal_code: string
-                      state_or_province: string
                     authentication:
                       force_password_reset: true
                       new_password: string123
@@ -520,6 +511,7 @@ paths:
           * **state_or_province**
           * **postal_code**
         * An attempt to create an address that already exists will result in no change to the address or custom form field values, an HTTP 200 return code, and the address will be absent from the response body.
+        * The default rate limit for this endpoint is 10 concurrent requests.
       summary: Create a Customer Address
       operationId: CustomersAddressesPost
       deprecated: false
@@ -1483,8 +1475,6 @@ paths:
         - Customer Consent
       operationId: CustomersConsentByCustomerId_GET
       deprecated: false
-      parameters:
-        - $ref: '#/components/parameters/customerId'
       responses:
         '200':
           $ref: '#/components/responses/consent_Resp'
@@ -1521,7 +1511,6 @@ paths:
           schema:
             type: string
             default: application/json
-        - $ref: '#/components/parameters/customerId'
       requestBody:
         content:
           application/json:
@@ -1554,11 +1543,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
     parameters:
-      - schema:
-          type: string
-        name: customerId
-        in: path
-        required: true
+      - $ref: '#/components/parameters/customerId'
   '/customers/{customerId}/stored-instruments':
     get:
       summary: Get Stored Instruments
@@ -2508,15 +2493,15 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
   schemas:
