@@ -225,6 +225,8 @@ paths:
                             headers:
                               type: object
                               description: You can pass in any number of custom headers to validate webhooks being returned.
+                              properties: {}
+                              nullable: true
                               additionalProperties:
                                 type: string
                             is_active:
@@ -462,6 +464,7 @@ components:
                       minLength: 1
                     headers:
                       type: object
+                      properties: {}
                       nullable: true
                       additionalProperties:
                         type: string
@@ -617,6 +620,8 @@ components:
                     minLength: 1
                   headers:
                     type: object
+                    properties: {}
+                    nullable: true
                     additionalProperties:
                       type: string
                   is_active:
@@ -3045,8 +3050,9 @@ components:
           deprecated: true
         headers:
           type: object
-          description: 'Headers used to validate that webhooks are active. You can pass in any number of custom headers to validate webhooks are being returned. '
+          description: Headers used to validate that webhooks are active. You can pass in any number of custom headers to validate webhooks are being returned.
           nullable: true
+          properties: {}
           additionalProperties:
             type: string
       required:
