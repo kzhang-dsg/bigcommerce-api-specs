@@ -2,7 +2,7 @@ openapi: '3.0.3'
 info:
   title: Checkouts
   description: |-
-    For more information on authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
+    For more information on authenticating BigCommerce APIs, see [Authentication](/docs/start/authentication).
 
     Create and manage checkouts from existing carts using BigCommerce checkout logic.
   version: '3.0'
@@ -1598,7 +1598,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/discounts':
     post:
       tags:
@@ -2383,7 +2382,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/billing-address':
     post:
       tags:
@@ -3154,7 +3152,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/billing-address/{addressId}':
     put:
       tags:
@@ -3925,7 +3922,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/consignments':
     post:
       tags:
@@ -3934,7 +3930,10 @@ paths:
       description: |-
         Adds a new consignment to a checkout.
 
-        For more information about working with consignments, see [Checkout consignment](/api-docs/checkouts/checkout-consignment).  
+
+        Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
+
+        For more information about working with consignments, see [Checkout consignment](/docs/storefront/cart-checkout/guide/consignments).  
 
         Though the only required `address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/docs/rest-management/checkouts/checkout-orders#create-an-order) the `address` requires the following properties:
         * `first_name`
@@ -3964,8 +3963,36 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateConsignmentRequest'
-        required: true
+                $ref: '#/components/schemas/CreateConsignmentRequest'
+            examples: 
+              Shipping Consignment:
+                value:
+                  - address:
+                      first_name: "Jane"
+                      last_name: "Doe"
+                      email: "Jane.Doe@email.com"
+                      company: "BigCommerce"
+                      address1: "100 Main Street"
+                      address2: "string"
+                      city: "Austin"
+                      state_or_province: "Texas"
+                      state_or_province_code: "string"
+                      country_code: "US"
+                      postal_code: "78701"
+                      phone: "555-555-5555"
+                      custom_fields:
+                        - field_id: "string"
+                          field_value: "string"
+                      line_items:
+                          item_id: "118f8774-387c-485e-a095-6ef76d5f1bbd"
+                          quantity: 1 
+              Pickup Consignment:
+                value: 
+                  - line_items:
+                      - item_id: "118f8774-387c-485e-a095-6ef76d5f1bbd"
+                        quantity: 1
+                    pickup_option:
+                      pickup_method_id: 1                 
       responses:
         '200':
           description: ''
@@ -4714,7 +4741,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/consignments/{consignmentId}':
     parameters:
       
@@ -4730,13 +4756,18 @@ paths:
         - Checkout Consignments
       summary: Update Checkout Consignment
       description: |-
-        Updates an existing consignment. The address, line item IDs, and the shipping option ID can be updated using this endpoint. 
+        Updates an existing consignment. The address, line item IDs, and shipping option ID can be updated using this endpoint.
+
+        Use a separate `PUT` request to update the shipping option IDs if you also want to update the address and line item IDs.  
         
-        To add a new address and shipping options with line items, complete the following steps. 
+        To add new shipping options, complete the following steps: 
+        * Use the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint to add a new [consignment] to a checkout. 
+        * Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` obtained in the [Add Consignment to Checkout](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) endpoint. 
         
-        1. Add a new [consignment](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) to a checkout. 
+        To update an existing address and line item IDs, assign a new address and line item IDs by sending a `PUT` request.
+
+        Please note that this API endpoint is not concurrent safe, meaning multiple simultaneous requests could result in unexpected and inconsistent results.
         
-        2. Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` obtained in Step One. 
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
       parameters:
         - $ref: '#/components/parameters/Content-Type'
@@ -5501,7 +5532,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      x-codegen-request-body-name: body
     delete:
       tags:
         - Checkout Consignments
@@ -7025,7 +7055,6 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      x-codegen-request-body-name: body
   '/checkouts/{checkoutId}/coupons/{couponCode}':
     delete:
       tags:
@@ -7794,11 +7823,16 @@ paths:
             examples:
               example-1:
                 value:
-                  '0': null
-                  '592': null
                   maxUses: 1
                   ttl: 2
       description: Use the checkout token to display a confirmation page for a guest shopper.
+                    
+                    **Usage Notes**
+                    * The response from performing this POST request is a checkout token. 
+                    * The checkout token is a single-use token that is not order-dependent. You cannot create this token after finalizing an order.
+                    * After completing the order, you can redirect the shopper to /order-confirmation/{orderId}?t={checkoutToken}.
+                    * After token validation, the /order-confirmation/{orderId} page displays.
+                    * The `ORDER_TOKEN` should match the order or the logged-in customer can access the order.
 components:
   schemas:
     Checkout:
@@ -8666,10 +8700,12 @@ components:
                   properties:
                     field_id:
                       type: string
-                      description: ''
+                      description: 'You must provide the form field ID value as the `field_id`.'
                     field_value:
-                      type: string
+                      type: string  
                       description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
+                  required:
+                    - field_id
           line_items:
             type: array
             description: ''
@@ -8689,6 +8725,7 @@ components:
                   format: int32
           pickup_option:
             type: object
+            description: 'Assigns a pickup consignment. Note: You cannot assign a shipping method with a pickup consignment.'
             properties:
               pickup_method_id:
                 type: integer
@@ -8696,10 +8733,8 @@ components:
       x-internal: false
     UpdateConsignmentRequest:
       title: Update Consignment Request
-      type: array
-      items:
-        type: object
-        properties:
+      type: object
+      properties:
           address:
             title: Address Properties
             required:
@@ -9692,14 +9727,14 @@ components:
         
         | Header | Argument | Description |
         |:-------|:---------|:------------|
-        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts). |
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see our [Guide to API Accounts](/docs/start/authentication/api-accounts). |
         
         ### Further reading
         
-        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/docs/start/authentication#x-auth-token-header-example-requests).
         
-        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/api-docs/getting-started/api-accounts#oauth-scopes).
+        For more about BigCommerce OAuth scopes, see our [Guide to API Accounts](/docs/start/authentication/api-accounts#oauth-scopes).
         
-        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+        For a list of API status codes, see [API Status Codes](/docs/start/about/status-codes).
       type: apiKey
       in: header
