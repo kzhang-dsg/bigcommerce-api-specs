@@ -248,7 +248,7 @@ paths:
       tags:
         - States
       description: Returns a count of all states.
-  '/stores/{store_hash}/v2/countries/states':
+  '/countries/states':
     get:
       operationId: get-all-states
       responses:
