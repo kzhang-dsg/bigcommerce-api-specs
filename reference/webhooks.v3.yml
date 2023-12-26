@@ -53,7 +53,7 @@ paths:
                       destination: 'https://665b65a6.ngrok.io/webhooks'
                       is_active: true
                       headers:
-                        custom: string
+                        'custom-key': developer-defined value
                     meta:
                       pagination:
                         count: 5
@@ -648,7 +648,7 @@ components:
                   destination: 'https://665b65a6.ngrok.io/webhooks'
                   is_active: true
                   headers:
-                    custom: string
+                    'custom-key': developer-defined value
                 meta:
                   pagination:
                     count: 5
